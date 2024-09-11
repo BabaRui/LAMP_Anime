@@ -7,9 +7,11 @@
     <link rel="stylesheet" href="../styles.css">
 </head>
 <body>
+    <header id="header"></header>
     <main>
         <p>news</p>
     </main>
+    <footer id="footer"></footer>
     <script>
         // ヘッダーの読み込み
         fetch('../HeaderFooter/header.html')
@@ -23,7 +25,7 @@
             .catch(error => console.error('There was a problem with the fetch operation:', error));
 
         // フッターの読み込み
-        fetch('../HeaderFooter/header.html')
+        fetch('../HeaderFooter/footer.html')
             .then(response => {
                 if (!response.ok) {
                     throw new Error('Network response was not ok');
@@ -35,5 +37,3 @@
     </script>
 </body>
 </html>
-
-<!-- https://www.tohoho-web.com/how2/html.htm -->
