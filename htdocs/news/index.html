@@ -3,53 +3,36 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>アニメ紹介ページ</title>
+    <title>http://18.178.60.234/students/G202503_12/Anime_GitHub/Home</title>
     <link rel="stylesheet" href="../styles.css">
 </head>
 <body>
-    <header>
-        <h1>News</h1>
-    </header>
     <main>
+        <p>news</p>
+    </main>
+    <script>
+        // ヘッダーの読み込み
+        fetch('./headerFooter/header.html')
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                return response.text();
+            })
+            .then(data => document.getElementById('header').innerHTML = data)
+            .catch(error => console.error('There was a problem with the fetch operation:', error));
 
-          
-        <section id="title">
-            <div class="text-and-image">
-                <div class="text">
-                    <p><font size="6">ダークギャザリング</font></p>
-                    <p><font size="6">アニメ放映</font></p>
-                    <a href="http://18.178.60.234/students/G202503_12/Anime/news" target="_blank">NEWS</a>
-                    /
-                    <a URL="http://18.178.60.234/students/G202503_12/Anime/index.html" target="_blank">ONAIR</a><br>
-
-                    <a href="http://18.178.60.234/students/G202503_12/Anime/index.html" target="_blank">STAFF/CAST</a>
-                    /
-                    <a href="http://18.178.60.234/students/G202503_12/Anime/index.html" target="_blank">CHARACTERS</a><br>
-
-                    <a href="http://18.178.60.234/students/G202503_12/Anime/index.html" target="_blank">STORY</a>
-                    /
-                    <a href="http://18.178.60.234/students/G202503_12/Anime/index.html" target="_blank">MUSIC</a><br>
-
-                    <a href="http://18.178.60.234/students/G202503_12/Anime/index.html" target="_blank">PRODUCT</a>
-                    /
-                    <a href="http://18.178.60.234/students/G202503_12/Anime/index.html" target="_blank">SPECIAL</a><br>
-
-                    <a href="https://x.com/DG_anime" target="_blank">TWITTER</a>
-                    /
-                </div>
-                <div class="image">
-                    <img src="" alt="画像の説明"  width="500px" height="500px">
-                    <!--C:\JJC_work\Lamp\Dark\本番\画像\Title.png-->
-                </div>
-            </div>
-        </section>
-        
-        <div class="links-container">
-            <!--<video width="200px" height="133px"  src="C:\Users\baba\Videos\Captures\movie_001.mp4" controls></video>  -->
-        </div>
-        </section>
-        <p>&copy; 2024 ダークギャザリング. All rights reserved.</p>
-    </footer>
+        // フッターの読み込み
+        fetch('./headerFooter/header.html')
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                return response.text();
+            })
+            .then(data => document.getElementById('footer').innerHTML = data)
+            .catch(error => console.error('There was a problem with the fetch operation:', error));
+    </script>
 </body>
 </html>
 
