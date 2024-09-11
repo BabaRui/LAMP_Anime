@@ -1,8 +1,42 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>トップページ</title>
+     
+</head>
 <body>
-  <?php include('parts/header.html'); ?>
-  <div class="wrapper">
-      <div class="main"></div>
-      <?php include ('parts/sidebar.html'); ?>
-  </div>
- <?php include ('parts/footer.html'); ?>
+    <div id="header"></div>
+
+    <main>
+        <p>内容</p>
+    </main>
+
+    <div id="footer"></div>
+
+    <script>
+        // ヘッダーの読み込み
+        fetch('header.html')
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                return response.text();
+            })
+            .then(data => document.getElementById('header').innerHTML = data)
+            .catch(error => console.error('There was a problem with the fetch operation:', error));
+
+        // フッターの読み込み
+        fetch('footer.html')
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                return response.text();
+            })
+            .then(data => document.getElementById('footer').innerHTML = data)
+            .catch(error => console.error('There was a problem with the fetch operation:', error));
+    </script>
 </body>
+</html>
