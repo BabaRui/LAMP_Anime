@@ -19,28 +19,74 @@
     </div>
   </header>
   
-  <style>
+<style>
+    header {
+        padding: 20px;
+        text-align: center;
+    }
     .header-container {
         display: flex;
         justify-content: space-between;
         align-items: center;
         padding: 10px 20px;
-        background-color: #f8f9fa;
     }
-  
+
     .logo img {
         height: 50px;
+        background-color: #000000;
     }
-  
+
     .header-links a {
         margin-left: 20px;
         text-decoration: none;
-        color: #333;
+        color: #838383; /* Light grey color */
         font-size: 18px;
+        position: relative;
     }
-  
+
+    .header-links a::before {
+        content: '';
+        position: absolute;
+        top: -10%;
+        left: -10%;
+        width: 120%;
+        height: 120%;
+        background: rgba(128, 0, 128, 0.5); /* Purple glow */
+        filter: blur(5px);
+        z-index: -1;
+        opacity: 0; /* Initially hidden */
+        transition: opacity 0.3s ease-in-out;
+    }
+
     .header-links a:hover {
-        color: #007bff;
+        color: #ffffff; /* White color */
     }
-  </style>
+
+    .header-links a:hover::before {
+        opacity: 1; /* Show glow on hover */
+        color: #d74ebe8e; /* White color */
+    }
+
+    .header-links a::after {
+        position: absolute;
+        left: 0;
+        content: '';
+        width: 100%;
+        height: 2px;
+        background: rgba(128, 0, 128, 0.8);
+        bottom: -1px;               /*アンダーラインがaタグの下端から現れる*/
+        transform: scale(0, 1);     /*アンダーラインの縮尺比率。ホバー前はx方向に0*/
+        transform-origin: left top; /*変形（アンダーラインの伸長）の原点がaタグ（各メニュー）の左端*/
+        transition: transform 0.3s; /*変形の時間*/
+    }
+
+    .header-links a:hover::after {
+        transform: scale(1, 1);     /*ホバー後、x軸方向に1（相対値）伸長*/
+    }
+
+    .header-links a.current-page {
+        pointer-events: none; /* Disable hover */
+        color: #ffffff; /* White color to indicate current page */
+    }
+</style>
   
