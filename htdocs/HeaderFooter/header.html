@@ -90,12 +90,15 @@
     }
 </style>
 <script>
-    document.addEventListener("DOMContentLoaded", function() {
+document.addEventListener("DOMContentLoaded", function() {
     var links = document.querySelectorAll('.header-links a');
-    var currentUrl = window.location.href.replace(/\/$/, ""); // Remove trailing slash
+    var currentPath = window.location.pathname.replace(/\/$/, ""); // Remove trailing slash from path
+    console.log("Current Path:", currentPath); // デバッグ用
+
     links.forEach(function(link) {
-        var linkUrl = link.href.replace(/\/$/, ""); // Remove trailing slash
-        if (linkUrl === currentUrl) {
+        var linkPath = new URL(link.href).pathname.replace(/\/$/, ""); // Remove trailing slash from link path
+        console.log("Link Path:", linkPath); // デバッグ用
+        if (linkPath === currentPath) {
             link.classList.add('current-page');
         }
     });
