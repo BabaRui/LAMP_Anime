@@ -91,14 +91,15 @@
 </style>
 <script>
     document.addEventListener("DOMContentLoaded", function() {
-        var links = document.querySelectorAll('.header-links a');
-        var currentUrl = window.location.href;
-
-        links.forEach(function(link) {
-            if (link.href === currentUrl) {
-                link.classList.add('current-page');
-            }
-        });
+    var links = document.querySelectorAll('.header-links a');
+    var currentUrl = window.location.href.replace(/\/$/, ""); // Remove trailing slash
+    links.forEach(function(link) {
+        var linkUrl = link.href.replace(/\/$/, ""); // Remove trailing slash
+        if (linkUrl === currentUrl) {
+            link.classList.add('current-page');
+        }
     });
+});
+
 </script>
   
