@@ -89,4 +89,16 @@
         color: #ffffff; /* White color to indicate current page */
     }
 </style>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        var links = document.querySelectorAll('.header-links a');
+        var currentUrl = window.location.href;
+
+        links.forEach(function(link) {
+            if (link.href === currentUrl) {
+                link.classList.add('current-page');
+            }
+        });
+    });
+</script>
   
