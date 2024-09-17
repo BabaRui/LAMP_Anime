@@ -91,18 +91,19 @@
 </style>
 <script>
 document.addEventListener("DOMContentLoaded", function() {
-    var links = document.querySelectorAll('.header-links a');
-    var currentPath = window.location.pathname.replace(/\/$/, ""); // Remove trailing slash from path
-    console.log("Current Path:", currentPath); // デバッグ用
+        var links = document.querySelectorAll('.header-links a');
+        var currentPath = window.location.pathname.replace(/\/$/, ""); // Remove trailing slash from path
+        alert("Current Path: " + currentPath); // デバッグ用
 
-    links.forEach(function(link) {
-        var linkPath = new URL(link.href).pathname.replace(/\/$/, ""); // Remove trailing slash from link path
-        console.log("Link Path:", linkPath); // デバッグ用
-        if (linkPath === currentPath) {
-            link.classList.add('current-page');
-        }
+        links.forEach(function(link) {
+            var linkPath = new URL(link.href).pathname.replace(/\/$/, ""); // Remove trailing slash from link path
+            alert("Link Path: " + linkPath); // デバッグ用
+            if (linkPath === currentPath) {
+                alert("Match found: " + linkPath); // デバッグ用
+                link.classList.add('current-page');
+            }
+        });
     });
-});
 
 </script>
   
